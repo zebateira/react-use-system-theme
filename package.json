@@ -1,0 +1,91 @@
+{
+  "name": "react-use-system-theme",
+  "version": "1.0.0",
+  "description": "React Hook to get the system theme (OS theme: light or dark) based on prefers-colors-scheme. Subscribes to changes as well.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "homepage": "https://github.com/zebateira/react-use-system-theme#readme",
+  "author": "Ze Bateira <jlageb@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zebateira/react-use-system-theme.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "theme",
+    "theming",
+    "prefers-colors-scheme",
+    "dark-mode",
+    "system",
+    "auto-theme"
+  ],
+  "bugs": {
+    "url": "https://github.com/zebateira/react-use-system-theme/issues"
+  },
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "build:commonjs": "BABEL_ENV=commonjs babel src -d lib --delete-dir-on-start",
+    "build:es": "BABEL_ENV=es babel src -d es --delete-dir-on-start",
+    "build": "npm run build:commonjs && npm run build:es",
+    "test": "jest --coverage",
+    "lint": "eslint --ignore-path .gitignore .",
+    "prerelease": "npm t && npm run lint && npm run build",
+    "release": "standard-version",
+    "predeploy": "npm run build && cd demo && npm i && npm run build",
+    "deploy": "gh-pages -d demo/build",
+    "postrelease": "git push --follow-tags origin master && npm publish"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "@testing-library/react/cleanup-after-each"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.7.4",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@moxy/babel-preset": "^3.2.1",
+    "@moxy/eslint-config": "^9.1.2",
+    "@testing-library/react": "^8.0.1",
+    "@testing-library/react-hooks": "^3.2.1",
+    "babel-jest": "^24.5.0",
+    "commitlint": "^8.0.0",
+    "eslint": "^5.13.0",
+    "gh-pages": "^2.0.1",
+    "husky": "^2.1.0",
+    "jest": "^24.5.0",
+    "lint-staged": "^8.1.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "standard-version": "^6.0.1"
+  }
+}
