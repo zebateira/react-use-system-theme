@@ -35,8 +35,8 @@ export default function useSystemTheme() {
         darkMatch.addEventListener('change', onDarkMatches);
 
         return () => {
-            lightMatch.removeEventListener(onLightMatches);
-            darkMatch.removeEventListener(onDarkMatches);
+            lightMatch.removeEventListener('change', onLightMatches);
+            darkMatch.removeEventListener('change', onDarkMatches);
         };
     }, []);
 
