@@ -26,6 +26,10 @@ function App() {
 }
 ```
 
+
+![Demo](https://i.imgur.com/XHbuLIb.gif)
+
+
 ## Install
 
 ```sh
