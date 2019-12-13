@@ -42,9 +42,6 @@
     "postrelease": "git push --follow-tags origin master && npm publish"
   },
   "jest": {
-    "setupFilesAfterEnv": [
-      "@testing-library/react/cleanup-after-each"
-    ],
     "collectCoverageFrom": [
       "src/**/*"
     ]
@@ -70,23 +67,23 @@
     "react": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.7.4",
-    "@commitlint/config-conventional": "^8.0.0",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@commitlint/config-conventional": "^8.2.0",
     "@moxy/babel-preset": "^3.2.1",
     "@moxy/eslint-config": "^9.1.2",
-    "@testing-library/react": "^8.0.1",
+    "@testing-library/react": "^9.3.3",
     "@testing-library/react-hooks": "^3.2.1",
-    "babel-jest": "^24.5.0",
-    "commitlint": "^8.0.0",
-    "eslint": "^5.13.0",
-    "gh-pages": "^2.0.1",
-    "husky": "^2.1.0",
-    "jest": "^24.5.0",
-    "lint-staged": "^8.1.4",
+    "babel-jest": "^24.9.0",
+    "commitlint": "^8.2.0",
+    "eslint": "^6.7.2",
+    "gh-pages": "^2.1.1",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
-    "standard-version": "^6.0.1"
+    "standard-version": "^7.0.1"
   }
 }
