@@ -38,22 +38,6 @@ $ npm install react-use-system-theme
 
 This library is written in modern JavaScript and is published in both CommonJS and ES module transpiled variants. If you target older browsers please make sure to transpile accordingly.
 
-## Why do you need this?
-
-Initially, support for dark mode apps have been implemented by adding a simple toggle in some settings.
-Additionally, some apps have started to support another option "System Default": this is great because the user does not have to change all the apps theme constantly, instead, just change the system theme (mac/windows/linux/android/ios) in one place, and all the apps should change it's theme.
-
-This react hook allows get the currently active theme and to also subscribe to the theme changes in order to allow the ui to update to the new theme.
-
-Usually, the CSS support for this using the media query `(prefers-color-scheme: light)` would be enough, but for `CSS-in-JS` solutions, you probably are getting the theme settings from a js object, so if we can simply use one theme object (`theme.light`/`theme.dark`) given the users system defined theme, we can make our styles simpler.
-
-**Disclaimer**: Browser support for [`prefers-color-scheme` is coming along really well](https://caniuse.com/#feat=prefers-color-scheme), but still, this is an experimental feature: use it wisely!
-
-<!-- ## Demo -->
-
-<!-- You may see a simple demo of `react-use-system-theme` in [https://zebateira.github.io/react-use-system-theme](https://zebateira.github.io/react-use-system-theme/). -->
-
-
 ## Usage
 
 **`useSystemTheme()` hook**:
@@ -90,6 +74,21 @@ function App() {
 ### Values
 
 The values can be either `dark`, `light` or `null` if the system has no preference for the theme.
+
+### SSR
+
+Value will be `undefined`, so you can choose which default theme you want to use before we are able to detect the theme.
+
+## Why do you need this?
+
+Initially, support for dark mode apps have been implemented by adding a simple toggle in some settings.
+Additionally, some apps have started to support another option "System Default": this is great because the user does not have to change all the apps theme constantly, instead, just change the system theme (mac/windows/linux/android/ios) in one place, and all the apps should change it's theme.
+
+This react hook allows get the currently active system theme and to also subscribe to the theme changes in order to allow the ui to update to the new theme.
+
+Usually, the CSS support for this using the media query `(prefers-color-scheme: light)` would be enough, but for `CSS-in-JS` solutions, you probably are getting the theme settings from a js object, so if we can simply use one theme object (`theme.light`/`theme.dark`) given the users system defined theme, we can make our styles simpler.
+
+**Disclaimer**: Browser support for [`prefers-color-scheme` is coming along really well](https://caniuse.com/#feat=prefers-color-scheme), but still, this is an experimental feature: use it wisely!
 
 
 ## Tests
