@@ -22,7 +22,7 @@ import useSystemTheme from 'react-use-system-theme';
 function App() {
     const systemTheme = useSystemTheme();
 
-    return <App theme={systemTheme || 'dark'} />
+    return <Page theme={systemTheme || 'dark'} />
 }
 ```
 
@@ -86,6 +86,11 @@ function App() {
     );
 }
 ```
+
+### Values
+
+The values can be either `dark`, `light` or `null` if the system has no preference for the theme.
+
 
 ## Tests
 
