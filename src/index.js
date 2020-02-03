@@ -27,16 +27,16 @@ export default function useSystemTheme() {
         const lightMatch = window.matchMedia(colorSchemes.light);
         const onLightMatches = onThemeChange(() => setTheme('light'));
 
-        lightMatch.addEventListener('change', onLightMatches);
+        lightMatch.addListener('change', onLightMatches);
 
         const darkMatch = window.matchMedia(colorSchemes.dark);
         const onDarkMatches = onThemeChange(() => setTheme('dark'));
 
-        darkMatch.addEventListener('change', onDarkMatches);
+        darkMatch.addListener('change', onDarkMatches);
 
         return () => {
-            lightMatch.removeEventListener('change', onLightMatches);
-            darkMatch.removeEventListener('change', onDarkMatches);
+            lightMatch.removeListener('change', onLightMatches);
+            darkMatch.removeListener('change', onDarkMatches);
         };
     }, []);
 
