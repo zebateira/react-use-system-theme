@@ -5,7 +5,7 @@ export default function windowMatchMedia() {
         listeners,
         mock: (theme) => (query) => ({
             matches: query === `(prefers-color-scheme: ${theme})`,
-            addListener: (eventName, listener) => listeners.push({ listener, query }),
+            addListener: (listener) => listeners.push({ listener, query }),
             removeListener: (listenerToRemove) => listeners.filter(({ listener }) => listener !== listenerToRemove),
         }),
         triggerOnChangeEvent: (newTheme) => {
