@@ -1,6 +1,6 @@
 {
   "name": "react-use-system-theme",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Hook to get the system theme (OS theme: light or dark) based on prefers-colors-scheme. Subscribes to changes as well.",
   "main": "lib/index.js",
   "module": "es/index.js",
