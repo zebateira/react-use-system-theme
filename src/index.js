@@ -1,4 +1,6 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
+
+import useLayoutEffect from './use-isomorphic-layout-effect';
 
 export const colorSchemes = {
     light: '(prefers-color-scheme: light)',
