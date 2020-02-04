@@ -15,8 +15,8 @@ function onThemeChange(callback) {
     };
 }
 
-export default function useSystemTheme() {
-    const [theme, setTheme] = useState(null);
+export default function useSystemTheme(initialTheme) {
+    const [theme, setTheme] = useState(initialTheme || null);
 
     useEffect(() => {
         // SSR or matchMedia not supported
@@ -40,16 +40,18 @@ export default function useSystemTheme() {
         };
     }, []);
 
-    // SSR or matchMedia not supported
-    if (typeof window === 'undefined' || !window.matchMedia) {
-        return;
-    }
+    useEffect(() => {
+        // SSR or matchMedia not supported
+        if (typeof window === 'undefined' || !window.matchMedia) {
+            return;
+        }
 
-    if (window.matchMedia(colorSchemes.dark).matches && !theme) {
-        setTheme('dark');
-    } else if (window.matchMedia(colorSchemes.light).matches && !theme) {
-        setTheme('light');
-    }
+        if (window.matchMedia(colorSchemes.dark).matches && theme !== 'dark') {
+            setTheme('dark');
+        } else if (window.matchMedia(colorSchemes.light).matches && theme !== 'light') {
+            setTheme('light');
+        }
+    }, [theme]);
 
     return theme;
 }

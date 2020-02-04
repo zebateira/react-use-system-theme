@@ -16,7 +16,7 @@ it('should not run if window.matchMedia is not available', () => {
 
     const { result } = renderHook(() => useSystemTheme());
 
-    expect(result.current).toBe(undefined);
+    expect(result.current).toBe(null);
 });
 
 it('should initialize with the current system theme', () => {
