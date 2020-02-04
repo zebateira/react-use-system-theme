@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 
 export const colorSchemes = {
     light: '(prefers-color-scheme: light)',
@@ -40,7 +40,7 @@ export default function useSystemTheme(initialTheme) {
         };
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         // SSR or matchMedia not supported
         if (typeof window === 'undefined' || !window.matchMedia) {
             return;
