@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/zebateira/react-use-system-theme/compare/v1.0.4...v1.1.0) (2020-02-04)
+
+
+### Features
+
+* support initialTheme value ([386fdcc](https://github.com/zebateira/react-use-system-theme/commit/386fdcce991558d0937a38670b8082910692dad6))
+
+
+### Bug Fixes
+
+* use useLayoutEffect on setup to avoid re-render on ssr apps ([6196355](https://github.com/zebateira/react-use-system-theme/commit/6196355e7216ea7e0bb0e0be8f9d91f821c9e612))
+
 ### [1.0.4](https://github.com/zebateira/react-use-system-theme/compare/v1.0.3...v1.0.4) (2020-02-03)
 
 
