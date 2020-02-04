@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/zebateira/react-use-system-theme/compare/v1.1.0...v1.1.1) (2020-02-04)
+
+
+### Bug Fixes
+
+* suppress react warning "useLayoutEffect does nothing on the server" ([299b2dd](https://github.com/zebateira/react-use-system-theme/commit/299b2dd6f9dfd46d9bc8fbeadd9b91848ea4a98d))
+
 ## [1.1.0](https://github.com/zebateira/react-use-system-theme/compare/v1.0.4...v1.1.0) (2020-02-04)
 
 
