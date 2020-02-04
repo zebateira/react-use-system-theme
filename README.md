@@ -20,9 +20,9 @@ A React Hook to get the system theme (OS theme: light or dark) based on `prefers
 import useSystemTheme from 'react-use-system-theme';
 
 function App() {
-    const systemTheme = useSystemTheme();
+    const systemTheme = useSystemTheme('dark');
 
-    return <Page theme={systemTheme || 'dark'} />
+    return <Page theme={systemTheme} />
 }
 ```
 
@@ -40,7 +40,7 @@ This library is written in modern JavaScript and is published in both CommonJS a
 
 ## Usage
 
-**`useSystemTheme()` hook**:
+**`useSystemTheme(initialTheme : Optional)` hook**:
 
 ```js
 import React from 'react';
@@ -61,10 +61,10 @@ const theme = {
 }
 
 function App() {
-    const systemTheme = useSystemTheme();
+    const systemTheme = useSystemTheme('dark');
 
     return (
-        <ThemeProvider theme={ theme[systemTheme || 'dark'] }>
+        <ThemeProvider theme={ theme[systemTheme] }>
             ...
         </ThemeProvider>
     );
@@ -73,11 +73,11 @@ function App() {
 
 ### Values
 
-The values can be either `dark`, `light` or `null` if the system has no preference for the theme.
+The values can be either `dark`, `light` or `null` if the system has no preference for the theme (or if `matchMedia` is not supported).
 
 ### SSR
 
-Value will be `undefined`, so you can choose which default theme you want to use before we are able to detect the theme.
+Value will be `null` or `initialTheme` if provided, so you can choose which default theme you want to use before we are able to detect the theme.
 
 ## Why do you need this?
 

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import mocks from './mocks';
 import useSystemTheme from '../src';
+import mocks from './mocks';
 import hideGlobalErrors from './util/hide-global-errors';
 
 beforeEach(() => {
@@ -11,12 +11,36 @@ beforeEach(() => {
     hideGlobalErrors();
 });
 
-it('should not run if window.matchMedia is not available', () => {
+it('should not initialize if window.matchMedia is not available', () => {
     window.matchMedia = null;
 
     const { result } = renderHook(() => useSystemTheme());
 
-    expect(result.current).toBe(undefined);
+    expect(result.current).toBe(null);
+});
+
+it('should not initialize if it\'s SSR', () => {
+    global.window = null;
+
+    const { result } = renderHook(() => useSystemTheme());
+
+    expect(result.current).toBe(null);
+});
+
+it('should initialize with the provided initial value if it\'s SSR', () => {
+    global.window = null;
+
+    const { result } = renderHook(() => useSystemTheme('light'));
+
+    expect(result.current).toBe('light');
+});
+
+it('should initialize with the provided initial value if window.matchMedia is not supported', () => {
+    window.matchMedia = null;
+
+    const { result } = renderHook(() => useSystemTheme('dark'));
+
+    expect(result.current).toBe('dark');
 });
 
 it('should initialize with the current system theme', () => {
