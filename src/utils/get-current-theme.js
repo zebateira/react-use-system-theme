@@ -6,6 +6,8 @@ const getCurrentTheme = () => {
     } else if (window.matchMedia(COLOR_SCHEMES.dark).matches) {
         return 'dark';
     }
+
+    return null;
 };
 
 export default getCurrentTheme;

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import useSystemTheme from '../src';
+import useSystemTheme, { getCurrentTheme } from '../src';
 import mocks from './mocks';
 import hideGlobalErrors from './util/hide-global-errors';
 
@@ -77,4 +77,20 @@ it('should return the new system theme if it changes', () => {
     windowMatchMediaMock.triggerOnChangeEvent('light');
 
     expect(result.current).toBe('light');
+});
+
+it('should return correct theme for getCurrentTheme', () => {
+    const windowMatchMediaMock = mocks.windowMatchMedia();
+
+    window.matchMedia = windowMatchMediaMock.mock('no-preferance');
+
+    expect(getCurrentTheme()).toBe(null);
+
+    window.matchMedia = windowMatchMediaMock.mock('dark');
+
+    expect(getCurrentTheme()).toBe('dark');
+
+    window.matchMedia = windowMatchMediaMock.mock('light');
+
+    expect(getCurrentTheme()).toBe('light');
 });
